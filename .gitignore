@@ -1,0 +1,8 @@
+/.git
+/.vscode
+/build
+/coverage
+/node_modules
+npm-debug.log*
+*.log
+/.env
