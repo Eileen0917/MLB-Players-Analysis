@@ -32,3 +32,12 @@ async function run() {
 }
 
 module.exports = run();
+
+// export async function connection() {
+//   await oracledb.getConnection({
+//     user: process.env.ORACLE_USER,
+//     password: process.env.ORACLE_PASSWORD,
+//     connectString:
+//       "(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = oracle.cise.ufl.edu)(PORT = 1521))(CONNECT_DATA =(SID= ORCL)))"
+//   });
+// }
