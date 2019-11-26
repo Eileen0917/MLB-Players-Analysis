@@ -3,12 +3,15 @@ const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
-const db = require("./db");
+// const axios = require("axios");
+const budget = require("./budget");
 
 // define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
 const viewsPath = path.join(__dirname, "../templates/views");
 const partialsPath = path.join(__dirname, "../templates/partials");
+
+var r1;
 
 // setup handlebars engine and views location
 app.set("view engine", "hbs");
@@ -24,10 +27,16 @@ app.get("", (req, res) => {
   });
 });
 
+// app.get("/budget", (req, res) => {
+//   res.render("budget", {
+//     title:
+//       "Do a higher budget team that has more star players or high salary players on the team promise more wins?"
+//   });
+// });
+
 app.get("/budget", (req, res) => {
-  res.render("budget", {
-    title:
-      "Do a higher budget team that has more star players or high salary players on the team promise more wins?"
+  budget.run().then(result => {
+    res.render("budget", result);
   });
 });
 
@@ -59,5 +68,8 @@ app.get("/pitching-quality", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(db.run);
+  // console.log("hi");
+  // budget.run().then(result => {
+  //   console.log(result[2]);
+  // });
 });
