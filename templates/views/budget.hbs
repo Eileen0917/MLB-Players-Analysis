@@ -6,6 +6,13 @@
 
 </head>
 
+<style>
+    #myChart {
+        max-height: 400px;
+        max-width: 400px;
+    }
+</style>
+
 <body>
     <div class="main-content">
         {{>header}}
@@ -23,13 +30,13 @@
         </p>
     </div>
 
-    <div>
-        <p>ww {{result}}</p>
-    </div>
-
     <canvas id="myChart" width="400" height="400"></canvas>
 
     {{>footer}}
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <script src="/js/budget.js"></script>
 </body>

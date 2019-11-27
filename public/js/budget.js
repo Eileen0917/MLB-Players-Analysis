@@ -1,44 +1,54 @@
-var Chart = require("chart.js");
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple"],
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)"
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)"
-        ],
-        borderWidth: 1
-      }
-    ]
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true
+axios
+  .get("/getBudget")
+  .then(function(response) {
+    let data = JSON.parse(response.data);
+    let labels = Object.keys(data);
+    let datas = Object.values(data);
+    console.log(labels[0]);
+    console.log(datas[0]);
+    console.log(data);
+    let aa = [
+      { x: 1, y: 2 },
+      { x: 2, y: 3 },
+      { x: 6, y: 5 }
+    ];
+    let ctx = document.getElementById("myChart");
+    let myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        datasets: [
+          {
+            label: labels[0],
+            data: datas[0]
+          },
+          {
+            label: labels[1],
+            data: datas[1]
           }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              type: "linear"
+            }
+          ]
         }
-      ]
-    }
-  }
-});
+      }
+    });
+    addData(myChart, labels, datas);
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
 
-console.log("qq");
-console.log(result);
+function addData(chart, label, data) {
+  chart.data.labels.push(label);
+  chart.data.datasets.forEach(dataset => {
+    dataset.data.push(data);
+    console.log(data);
+  });
+  chart.update();
+  console.log("added");
+}

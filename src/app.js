@@ -35,8 +35,12 @@ app.get("", (req, res) => {
 // });
 
 app.get("/budget", (req, res) => {
+  res.render("budget");
+});
+
+app.get("/getBudget", (req, res) => {
   budget.run().then(result => {
-    res.render("budget", result);
+    res.json(result);
   });
 });
 

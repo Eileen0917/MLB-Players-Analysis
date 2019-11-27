@@ -14,9 +14,23 @@ GROUP BY T.teamID, T.name, T.win_rate ,T.yearID
 ORDER BY T.yearID DESC, high_salary_players DESC`;
 
 async function run() {
-  const result = await db.run(sql);
-  //   console.log(result[2]);
-  return result;
+  const results = await db.run(sql);
+  let i;
+  let new_result = {};
+  for (const item of results) {
+    let log = {
+      x: item.WIN_RATE,
+      y: item.HIGH_SALARY_PLAYERS
+    };
+    if (!new_result[item.NAME]) {
+      new_result[item.NAME] = [];
+    }
+    new_result[item.NAME].push(log);
+  }
+
+  console.log(new_result);
+
+  return JSON.stringify(new_result);
 }
 
 module.exports = { run };
