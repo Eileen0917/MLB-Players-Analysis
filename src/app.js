@@ -5,6 +5,10 @@ const hbs = require("hbs");
 const app = express();
 // const axios = require("axios");
 const budget = require("./budget");
+const rated = require("./rated");
+const improvement = require("./improvement");
+const velicity = require("./velicity");
+const quality = require("./quality");
 
 // define paths for express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -27,15 +31,12 @@ app.get("", (req, res) => {
   });
 });
 
-// app.get("/budget", (req, res) => {
-//   res.render("budget", {
-//     title:
-//       "Do a higher budget team that has more star players or high salary players on the team promise more wins?"
-//   });
-// });
-
+// budget
 app.get("/budget", (req, res) => {
-  res.render("budget");
+  res.render("budget", {
+    title:
+      "Do a higher budget team that has more star players or high salary players on the team promise more wins?"
+  });
 });
 
 app.get("/getBudget", (req, res) => {
@@ -44,12 +45,20 @@ app.get("/getBudget", (req, res) => {
   });
 });
 
+// rated
 app.get("/rated", (req, res) => {
   res.render("rated", {
     title: "Overrated or Underrated? "
   });
 });
 
+app.get("/getRated", (req, res) => {
+  rated.run().then(result => {
+    res.json(result);
+  });
+});
+
+// improvement
 app.get("/improvement", (req, res) => {
   res.render("improvement", {
     title:
@@ -57,6 +66,13 @@ app.get("/improvement", (req, res) => {
   });
 });
 
+app.get("/getImprovement", (req, res) => {
+  improvement.run().then(result => {
+    res.json(result);
+  });
+});
+
+// pitching-velicity
 app.get("/pitching-velicity", (req, res) => {
   res.render("velicity", {
     title:
@@ -64,10 +80,23 @@ app.get("/pitching-velicity", (req, res) => {
   });
 });
 
+app.get("/getVelicity", (req, res) => {
+  velicity.run().then(result => {
+    res.json(result);
+  });
+});
+
+// pitching-quality
 app.get("/pitching-quality", (req, res) => {
   res.render("quality", {
     title:
       "Does the pitching quality of pitchers changes in every game for a period of consecutive game season?"
+  });
+});
+
+app.get("/getQuality", (req, res) => {
+  quality.run().then(result => {
+    res.json(result);
   });
 });
 

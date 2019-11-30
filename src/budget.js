@@ -15,7 +15,6 @@ ORDER BY T.yearID DESC, high_salary_players DESC`;
 
 async function run() {
   const results = await db.run(sql);
-  let i;
   let new_result = {};
   for (const item of results) {
     let log = {

@@ -3,8 +3,15 @@
 
 <head>
     <title>Improvement</title>
-
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
+
+<style>
+    #iChart {
+        max-height: 600px;
+        max-width: 700px;
+    }
+</style>
 
 <body>
     <div class="main-content">
@@ -19,8 +26,15 @@
         </p>
     </div>
 
+    <canvas id="iChart" width="400" height="400"></canvas>
 
     {{>footer}}
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="/js/improvementChart.js"></script>
 </body>
 
 </html>

@@ -3,13 +3,13 @@
 
 <head>
     <title>Budget</title>
-
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <style>
-    #myChart {
-        max-height: 400px;
-        max-width: 400px;
+    #bChart {
+        max-height: 600px;
+        max-width: 700px;
     }
 </style>
 
@@ -30,7 +30,7 @@
         </p>
     </div>
 
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="bChart" width="400" height="400"></canvas>
 
     {{>footer}}
 
@@ -38,7 +38,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-    <script src="/js/budget.js"></script>
+    <script src="/js/budgetChart.js"></script>
 </body>
 
 </html>
