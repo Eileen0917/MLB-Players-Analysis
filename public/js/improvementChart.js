@@ -8,7 +8,6 @@ axios
     const h2 = data.h2;
     const so2 = data.so2;
     const era2 = data.era2;
-    console.log(data);
 
     let ctx = document.getElementById("iChart1");
     let ctx2 = document.getElementById("iChart2");

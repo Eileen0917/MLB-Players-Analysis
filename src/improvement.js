@@ -78,7 +78,6 @@ async function run() {
     era2.push(eraLog);
   }
 
-  console.log(r2);
   const new_result = { h1, so1, era1, h2, so2, era2 };
 
   return JSON.stringify(new_result);

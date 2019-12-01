@@ -12,7 +12,6 @@ axios
     const r4 = data.r4;
     const r5_x = data.year5;
     const r5_y = data.c5;
-    console.log(data);
 
     let ctx1 = document.getElementById("bChart1");
     let ctx2 = document.getElementById("bChart2");
@@ -161,14 +160,3 @@ axios
   .catch(function(error) {
     console.log(error);
   });
-
-// function addData(chart, label, data) {
-//   chart.data.label.push(label);
-//   chart.data.datasets.forEach(dataset => {
-//     dataset.label.push(label);
-//     dataset.data.push(data);
-//     console.log(data);
-//   });
-//   chart.update();
-//   console.log("added");
-// }
