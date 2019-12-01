@@ -101,8 +101,5 @@ app.get("/getQuality", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  // console.log("hi");
-  // budget.run().then(result => {
-  //   console.log(result[2]);
-  // });
+  console.log("connected.");
 });
