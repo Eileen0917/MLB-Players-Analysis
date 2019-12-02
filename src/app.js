@@ -90,7 +90,7 @@ app.get("/getVelicity", (req, res) => {
 app.get("/pitching-quality", (req, res) => {
   res.render("quality", {
     title:
-      "Does the pitching quality of pitchers changes in every game for a period of consecutive game season?"
+      "Which pitching type that pitchers used the most to dominate the game?"
   });
 });
 
