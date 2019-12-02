@@ -1,25 +1,32 @@
 axios
-  .get("/getRated")
+  .get("/getVelicity")
   .then(function(response) {
     let data = JSON.parse(response.data);
-    // let labels = Object.keys(data);
-    // let datas = Object.values(data);
-    // console.log(labels[0]);
-    // console.log(datas[0]);
+    const o = data.ON2B3B;
+    const no = data.NON_ON2B3B;
+    const ss = data.r2_2[0].S2;
+    const s = data.r2_0[0].S2;
     console.log(data);
-    let aa = [
-      { x: 1, y: 2 },
-      { x: 2, y: 3 },
-      { x: 6, y: 5 }
-    ];
-    let ctx = document.getElementById("vChart");
-    let myChart = new Chart(ctx, {
-      type: "line",
+
+    const years = [2015, 2016, 2017, 2018];
+
+    let ctx1 = document.getElementById("vChart1");
+    let ctx2 = document.getElementById("vChart2");
+
+    let myChart = new Chart(ctx1, {
+      type: "bar",
       data: {
+        labels: years,
         datasets: [
           {
-            label: "vv",
-            data: aa
+            label: "ON_2B_3B",
+            data: o,
+            backgroundColor: "#3e95cd"
+          },
+          {
+            label: "NON_2B_3B",
+            data: no,
+            backgroundColor: "#3cba9f"
           }
         ]
       },
@@ -27,24 +34,51 @@ axios
         scales: {
           xAxes: [
             {
-              type: "linear"
+              stacked: false
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false
             }
           ]
         }
       }
     });
-    // addData(myChart, labels, datas);
+
+    let myChart2 = new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: ["Fourseam Fastball"],
+        datasets: [
+          {
+            label: "2 strikes",
+            data: [ss],
+            backgroundColor: "#3e95cd"
+          },
+          {
+            label: "0 strikes",
+            data: [s],
+            backgroundColor: "#3cba9f"
+          }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              stacked: false
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false
+            }
+          ]
+        }
+      }
+    });
   })
   .catch(function(error) {
     console.log(error);
   });
-
-function addData(chart, label, data) {
-  chart.data.labels.push(label);
-  chart.data.datasets.forEach(dataset => {
-    dataset.data.push(data);
-    console.log(data);
-  });
-  chart.update();
-  console.log("added");
-}

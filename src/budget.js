@@ -27,6 +27,11 @@ FROM ${sql}
 WHERE teamid = 'LAN'
 ORDER BY yearid`;
 
+const q1_4 = `SELECT yearid, win_rate
+FROM ${sql}
+WHERE teamid = 'BOS'
+ORDER BY yearid`;
+
 const q1_3 = `SELECT yearid, win_rate
 FROM ${sql}
 WHERE teamid = 'TBA'
@@ -84,6 +89,14 @@ async function run() {
     delete result.WIN_RATE;
   });
 
+  const r2_bos = await db.run(q1_4);
+  r2_bos.map(result => {
+    result.x = result.YEARID;
+    result.y = result.WIN_RATE;
+    delete result.YEARID;
+    delete result.WIN_RATE;
+  });
+
   const r2_tba = await db.run(q1_3);
   r2_tba.map(result => {
     result.x = result.YEARID;
@@ -127,6 +140,7 @@ async function run() {
     players1,
     r2_nya,
     r2_lan,
+    r2_bos,
     r2_tba,
     teams3,
     players3,

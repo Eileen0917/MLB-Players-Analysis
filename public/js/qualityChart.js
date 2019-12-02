@@ -1,5 +1,5 @@
 axios
-  .get("/getRated")
+  .get("/getQuality")
   .then(function(response) {
     let data = JSON.parse(response.data);
     // let labels = Object.keys(data);

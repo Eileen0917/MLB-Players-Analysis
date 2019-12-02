@@ -6,6 +6,7 @@ axios
     const players = data.players1;
     const r2_nya = data.r2_nya;
     const r2_lan = data.r2_lan;
+    const r2_bos = data.r2_bos;
     const r2_tba = data.r2_tba;
     const teams3 = data.teams3;
     const players3 = data.players3;
@@ -26,7 +27,8 @@ axios
         datasets: [
           {
             label: "2016",
-            data: players
+            data: players,
+            backgroundColor: "#3e95cd"
           }
         ]
       },
@@ -63,10 +65,16 @@ axios
             borderColor: "#e8c3b9"
           },
           {
+            label: "BOS",
+            data: r2_bos,
+            fill: false,
+            borderColor: "#548C00"
+          },
+          {
             label: "TBA",
             data: r2_tba,
             fill: false,
-            borderColor: "#3cba9f"
+            borderColor: "#0072E3"
           }
         ]
       },
@@ -88,7 +96,8 @@ axios
         datasets: [
           {
             label: "avg",
-            data: players3
+            data: players3,
+            backgroundColor: "#3e95cc"
           }
         ]
       },
