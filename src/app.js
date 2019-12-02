@@ -73,7 +73,7 @@ app.get("/getImprovement", (req, res) => {
 });
 
 // pitching-velicity
-app.get("/pitching-velicity", (req, res) => {
+app.get("/pitching-velocity", (req, res) => {
   res.render("velicity", {
     title:
       "Under what condition that a pitcher is more likely to throw harder and faster to increase the pitching velocity during a baseball game?"

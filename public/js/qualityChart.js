@@ -2,24 +2,35 @@ axios
   .get("/getQuality")
   .then(function(response) {
     let data = JSON.parse(response.data);
-    // let labels = Object.keys(data);
-    // let datas = Object.values(data);
-    // console.log(labels[0]);
-    // console.log(datas[0]);
+    const counts = data.counts;
+    const mu = data.mu;
+    const mu2 = data.mu2;
+    const c2015 = data.c2015;
+    const c2016 = data.c2016;
+    const c2017 = data.c2017;
+    const c2018 = data.c2018;
     console.log(data);
-    let aa = [
-      { x: 1, y: 2 },
-      { x: 2, y: 3 },
-      { x: 6, y: 5 }
-    ];
-    let ctx = document.getElementById("qChart");
-    let myChart = new Chart(ctx, {
-      type: "line",
+
+    let ctx1 = document.getElementById("qChart1");
+    let ctx2 = document.getElementById("qChart2");
+
+    let myChart = new Chart(ctx1, {
+      type: "pie",
       data: {
+        labels: mu,
         datasets: [
           {
-            label: "qq",
-            data: aa
+            data: counts,
+            backgroundColor: [
+              "#3e95cd",
+              "#8e5ea2",
+              "#3cba9f",
+              "#e8c3b9",
+              "#c45850",
+              "#0072E3",
+              "#64A600",
+              "#642100"
+            ]
           }
         ]
       },
@@ -33,7 +44,49 @@ axios
         }
       }
     });
-    // addData(myChart, labels, datas);
+
+    let myChart2 = new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: mu2,
+        datasets: [
+          {
+            label: "2015",
+            data: c2015,
+            backgroundColor: "#3e95cd"
+          },
+          {
+            label: "2016",
+            data: c2016,
+            backgroundColor: "#8e5ea2"
+          },
+          {
+            label: "2017",
+            data: c2017,
+            backgroundColor: "#3cba9f"
+          },
+          {
+            label: "2018",
+            data: c2018,
+            backgroundColor: "#e8c3b9"
+          }
+        ]
+      },
+      options: {
+        scales: {
+          xAxes: [
+            {
+              stacked: false
+            }
+          ],
+          yAxes: [
+            {
+              stacked: false
+            }
+          ]
+        }
+      }
+    });
   })
   .catch(function(error) {
     console.log(error);
