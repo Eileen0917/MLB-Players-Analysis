@@ -87,7 +87,7 @@ app.get("/getVelicity", (req, res) => {
 });
 
 // pitching-quality
-app.get("/pitching-quality", (req, res) => {
+app.get("/pitching-types", (req, res) => {
   res.render("quality", {
     title:
       "Which pitching type that pitchers used the most to dominate the game?"

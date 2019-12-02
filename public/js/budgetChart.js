@@ -146,7 +146,8 @@ axios
         datasets: [
           {
             label: "correlation",
-            data: r5_y
+            data: r5_y,
+            backgroundColor: "#3e95cd"
           }
         ]
       },
