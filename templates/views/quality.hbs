@@ -19,24 +19,56 @@
         <h1>{{title}}</h1>
 
         <p>
-            We all know that pitchers play a really important role in a baseball game. It is usually considered as the
-            most significant factor that leads to the game result - win or lose. Most of the players in MLB are
-            pitchers. As a result, they have to keep progressing and make a lot of efforts to stay in the league and win
-            the game. Pitch types, pitching velocity and command are what a good pitcher should master. We would like to
-            see how pitcher’s evolution on these three factors during MLB seasons. If the pitchers do not progress,
-            their signature pitches might be less useful against batters because the batters, game analysts and coaches
-            will research their pitches. Once the batters are getting used to the pitches, the pitchers might get into
-            big trouble. We are gonna look into the pitching statistics in every game through several seasons. The
-            statistics will show how the pitchers get involved and adjust their skills through the game season. On the
-            other hand, we will especially show out the data patterns for star pitchers which might be a great sample of
-            comparing with other pitchers.
+            We want to know which kind of pitch types has better performance in the league. In other words, we want to 
+            know which pitch type can help pitchers lose less points. Moreover, we want to know if the result is different 
+            or similar for each year.
+            In the beginning, we exclude those pitchers who played <b>less than 10 games</b>. Since those pitchers do not have 
+            enough information as a reference. 
+            Second, since we want to know which pitch type can help pitchers lose less points, ERA would be a great 
+            measurement in this analysis. 
+            Hence, we find out the pitchers having <b>top 20% ERA</b> and the distribution of their pitch types. 
+            <b>Define the type of pitcher</b> by the pitch type they most used ie. a “FF” pitcher pitched FF most in the year.
+            By doing so, we can know the type of those “good” pitchers.
         </p>
     </div>
-    <p>chart1</p>
+    
+        <p>
+            Here is a pie chart of the distribution of pitcher types and there are 107 pitchers totally in 2016.
+        </p>
+        
     <canvas class="qChart" id="qChart1" width="400" height="400"></canvas>
-    <p>chart2</p>
+    
+        <p>
+            we are also interested in which pitch type can be our <b>second weapon</b>, besides four-seam fastballs. 
+            Then, we start over the previous analysis, but exclude four-seam baseball. For the pitchers defined as 
+            four-seam fastball pitcher, if they threw slider(SL) second most, they would be defined as a SL pitcher 
+            in this time.
+        </p>
+        
     <canvas class="qChart" id="qChart2" width="400" height="400"></canvas>
-    <p>conclusion</p>
+    
+        <p>
+            <b>Slider(SL)</b>: a slider is a breaking ball pitch that tails laterally and down through the batter's hitting zone; 
+            it is thrown with less speed than a fastball but greater than the pitcher's curveball.
+
+            <b>Sinker(SI)</b>: a type of fastball which has significant downward and horizontal movement and is known for inducing 
+            ground balls which means it is easier to make an out.
+
+            <b>Two-seam Fastball(FT)</b>: a variant of the straight fastball. The pitch has the speed of a fastball and can also 
+            include late breaking action.
+
+            <b>Cutter(FC)</b>:  a type of fastball, designed to move slightly away from the pitcher's arm-side as it reaches 
+            home plate. When thrown from a right-handed pitcher to a left-handed hitter, or a lefty pitcher to a righty 
+            hitter, a cutter will quickly move in toward a hitter's hands. If the hitter swings, he often hits the ball 
+            on the smaller part -- or handle -- of the bat, causing it to break. 
+
+            <b>Curveball(CU)</b>: A curveball is a breaking pitch that has more movement. 
+            It is thrown slower and with more overall break than a slider, so it is slower than any pitch type above.
+            
+            In conclusion, to be a good pitcher in MLB, even if you don’t depend on your four-seam fastball, you still 
+            need the other versions of fastball like sinker, two-seam fastball or cutter. Or you need a great slider to 
+            beat your opponents.
+        </p>
 
     {{>footer}}
 
