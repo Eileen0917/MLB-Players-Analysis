@@ -1,6 +1,6 @@
-# db_project
+# MLB-Players-Analysis
 
-1. `cd db_project`
+1. `cd MLB-Players-Analysis`
 
 2. `npm i`
 
